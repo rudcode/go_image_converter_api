@@ -79,6 +79,7 @@ func ConvertPngToJpeg(inBuf io.ReadSeeker, outBuf io.Writer) error {
 			"f":      "image2",
 		}).
 		WithOutput(outBuf). //, os.Stdout).
+		Silent(true).
 		Run()
 	if err != nil {
 		return fmt.Errorf("error while transcoding: %s", err.Error())
@@ -122,6 +123,7 @@ func ResizeImage(inBuf io.Reader, format string, width uint16, height uint16, ou
 			"f":      "image2",
 		}).
 		WithOutput(outBuf). //, os.Stdout)
+		Silent(true).
 		Run()
 	if err != nil {
 		return fmt.Errorf("error while transcoding: %s", err.Error())
@@ -172,6 +174,7 @@ func CompressImage(inBuf io.Reader, format string, compressionLevel uint8, outBu
 		WithInput(inBuf).
 		Output("pipe:", outKwargs).
 		WithOutput(outBuf). //, os.Stdout).
+		Silent(true).
 		Run()
 	if err != nil {
 		return fmt.Errorf("error while transcoding: %s", err.Error())
