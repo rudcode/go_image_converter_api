@@ -1,0 +1,68 @@
+info:
+  contact: {}
+  title: Go Image Converter API
+paths:
+  /compress_image:
+    post:
+      consumes:
+      - multipart/form-data
+      description: Compress image with specified compression level (1-5)
+      operationId: compress_image
+      parameters:
+      - description: image file
+        in: formData
+        name: file
+        required: true
+        type: file
+      - description: compression level (1-5)
+        in: formData
+        name: compression_level
+        required: true
+        type: integer
+      produces:
+      - application/json
+      responses: {}
+      summary: Compress image
+  /convert_png_to_jpeg:
+    post:
+      consumes:
+      - multipart/form-data
+      description: Convert image from PNG format to JPEG format
+      operationId: convert_png_to_jpeg
+      parameters:
+      - description: image file
+        in: formData
+        name: file
+        required: true
+        type: file
+      produces:
+      - application/json
+      responses: {}
+      summary: Convert PNG to JPEG
+  /resize_image:
+    post:
+      consumes:
+      - multipart/form-data
+      description: Resize image to the specified width and height
+      operationId: resize_image
+      parameters:
+      - description: image file
+        in: formData
+        name: file
+        required: true
+        type: file
+      - description: width
+        in: formData
+        name: width
+        required: true
+        type: integer
+      - description: height
+        in: formData
+        name: height
+        required: true
+        type: integer
+      produces:
+      - application/json
+      responses: {}
+      summary: Resize image
+swagger: "2.0"
